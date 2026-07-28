@@ -85,13 +85,64 @@
     .project img{filter:saturate(1) brightness(1.02)}
     .project:hover img{filter:saturate(1.06) brightness(1.03)}
     @media(max-width:760px){.project{aspect-ratio:4/3}}
+    /* Bannere responsive: imagine separată și compoziție dedicată pentru mobil */
+    .slide picture,.slide img{display:block;width:100%;height:100%}.slide img{object-fit:cover;object-position:center}
+    @media(max-width:760px){
+      header{flex-wrap:nowrap;padding:12px 14px}.logo{width:auto;text-align:left;font-size:14px;white-space:nowrap}nav{width:auto;margin-left:auto;gap:3px}
+      nav a[href="./"],nav a[href="despre.html"],nav a[href="contacte.html"]{display:none!important}
+      nav a[href="portofoliu.html"],nav a[href="#servicii"]{display:block!important;padding:8px 7px;font-size:10px}
+      .menu-cta{padding:10px 12px;font-size:10px;white-space:nowrap}
+      .hero{min-height:100svh;padding:112px 14px 108px;align-items:flex-end;touch-action:pan-y}
+      .hero:after{background:linear-gradient(180deg,#07101f18 0%,#07101f12 34%,#07101fb8 72%,#0c1220f2 100%)}
+      .hero>div:not(.slides):not(.slider-controls){width:100%;padding:19px;border-radius:22px}
+      .hero h1{font-size:clamp(39px,12vw,54px);line-height:.96;letter-spacing:-.06em;margin:14px 0 18px}
+      .hero p{max-width:32ch;font-size:15px;line-height:1.5}
+      .hero .eyebrow{font-size:10px;letter-spacing:1.4px}
+      .slider-controls{left:auto;right:14px;bottom:25px}.slider-btn{width:46px;height:46px;font-size:20px;touch-action:manipulation}
+      .slide{transform:scale(1.025)}.slide.active{transform:scale(1)}
+    }
+    @media(max-width:390px){
+      nav a[href="portofoliu.html"]{display:none!important}
+      .hero{padding-top:100px}.hero h1{font-size:clamp(37px,12vw,47px)}
+    }
+    @media(max-width:760px) and (orientation:landscape){
+      .hero{min-height:620px;padding-top:100px}.hero>div:not(.slides):not(.slider-controls){max-width:560px}.hero h1{font-size:46px}
+    }
+    /* Liquid glass mobil: transparență reală, reflexie și chenare proporționale */
+    @media(max-width:760px){
+      body{background:radial-gradient(circle at 8% 12%,#376a91 0,transparent 30%),radial-gradient(circle at 96% 38%,#674e80 0,transparent 32%),radial-gradient(circle at 10% 78%,#187169 0,transparent 34%),#0c1220;background-attachment:scroll}
+      .hero>div:not(.slides):not(.slider-controls),.section-head,.about-copy,.service,.reviews-grid .review-card,.contact{
+        background:linear-gradient(142deg,#ffffff24 0%,#ffffff0d 42%,#9de9ff0b 68%,#bfffee16 100%);
+        border:1px solid #ffffff52;
+        box-shadow:inset 0 1px 0 #ffffff66,inset 1px 0 0 #ffffff20,inset 0 -1px 0 #9de9ff1f,0 20px 55px #0208154d;
+        -webkit-backdrop-filter:blur(20px) saturate(170%);
+        backdrop-filter:blur(20px) saturate(170%)
+      }
+      .section-head,.about-copy,.service,.reviews-grid .review-card,.contact{border-radius:24px}
+      .filters{
+        display:grid!important;
+        width:100%;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+        padding:12px;
+        border:1px solid #ffffff42;
+        border-radius:28px;
+        background:linear-gradient(145deg,#ffffff18,#9de9ff0a);
+        box-shadow:inset 0 1px 0 #ffffff4a,0 16px 40px #02081538;
+        -webkit-backdrop-filter:blur(18px) saturate(160%);
+        backdrop-filter:blur(18px) saturate(160%)
+      }
+      .filter{width:100%;min-width:0;min-height:50px;padding:11px 10px;border-radius:17px;border-color:#ffffff40;color:#f4f8fc;font-size:14px;text-align:center}
+      .filter.active,.filter:hover{background:linear-gradient(135deg,#d4fff5,#9de9ff);color:#0c1220;border-color:transparent;box-shadow:0 9px 24px #9de9ff28}
+    }
+    @media(max-width:390px){.filters{gap:8px;padding:10px;border-radius:24px}.filter{min-height:48px;padding:10px 7px;font-size:13px}}
   </style>
 </head>
 <body>
   <div class="grain"></div>
   <header><a class="logo" href="./">MOMENTE<span>•</span>STUDIO</a><nav><a href="./">Acasă</a><a href="portofoliu.html">Portofoliu</a><a href="despre.html">Despre</a><a href="contacte.html">Contacte</a><a href="#servicii">Prețuri</a><a class="menu-cta phone-call" href="tel:+37379796603">Sună acum</a></nav></header>
   <main>
-    <section class="hero"><div class="slides"><div class="slide active" style="background-image:url('assets/image-02.jpg')"></div><div class="slide" style="background-image:url('assets/image-03.jpg')"></div><div class="slide" style="background-image:url('assets/image-04.jpg')"></div></div><div><div class="eyebrow">Servicii foto pentru evenimente</div><h1>MOMENTE CARE RĂMÂN.</h1><div class="hero-bottom"><p>Nunți, cumătrii și zile de naștere surprinse natural, elegant și pline de emoție.</p></div></div><div class="slider-controls"><button class="slider-btn prev" aria-label="Banner anterior">←</button><button class="slider-btn next" aria-label="Banner următor">→</button></div></section>
+    <section class="hero"><div class="slides"><div class="slide active"><picture><source media="(max-width:760px)" srcset="assets/image-02-mobile.webp" type="image/webp"><img src="assets/image-02.jpg" alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async"></picture></div><div class="slide"><picture><source media="(max-width:760px)" srcset="assets/image-03-mobile.webp" type="image/webp"><img src="assets/image-03.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"></picture></div><div class="slide"><picture><source media="(max-width:760px)" srcset="assets/image-04-mobile.webp" type="image/webp"><img src="assets/image-04.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"></picture></div></div><div><div class="eyebrow">Servicii foto pentru evenimente</div><h1>MOMENTE CARE RĂMÂN.</h1><div class="hero-bottom"><p>Nunți, cumătrii și zile de naștere surprinse natural, elegant și pline de emoție.</p></div></div><div class="slider-controls"><button class="slider-btn prev" aria-label="Banner anterior">←</button><button class="slider-btn next" aria-label="Banner următor">→</button></div></section>
     <section id="portofoliu">
       <div class="section-head reveal"><div><div class="eyebrow">Lucrări selectate</div><h2>PORTOFOLIU</h2></div><p>Nunți, cumătrii și zile de naștere surprinse cu atenție la lumină, emoție și detalii.</p></div>
       <div class="filters reveal"><button class="filter active" data-filter="all">Toate</button><button class="filter" data-filter="nunta">Nuntă</button><button class="filter" data-filter="cumatrie">Cumătrie</button><button class="filter" data-filter="zi-nastere">Zi de naștere</button></div>
@@ -157,6 +208,7 @@
     const slides=[...document.querySelectorAll('.slide')];let current=0;let timer;
     function showSlide(index){slides[current].classList.remove('active');current=(index+slides.length)%slides.length;slides[current].classList.add('active');clearInterval(timer);timer=setInterval(()=>showSlide(current+1),5500)}
     document.querySelector('.next').onclick=()=>showSlide(current+1);document.querySelector('.prev').onclick=()=>showSlide(current-1);timer=setInterval(()=>showSlide(current+1),5500);
+    const hero=document.querySelector('.hero');let heroTouchStart=0;hero.addEventListener('touchstart',event=>{heroTouchStart=event.changedTouches[0].clientX},{passive:true});hero.addEventListener('touchend',event=>{const distance=event.changedTouches[0].clientX-heroTouchStart;if(Math.abs(distance)>48)showSlide(current+(distance<0?1:-1))},{passive:true});document.addEventListener('visibilitychange',()=>{clearInterval(timer);if(!document.hidden)timer=setInterval(()=>showSlide(current+1),5500)});
     const counterObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const el=entry.target,target=+el.dataset.target,start=performance.now(),duration=1400;function tick(now){const p=Math.min((now-start)/duration,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(target*ease).toLocaleString('ro-RO');if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);counterObserver.unobserve(el)}),{threshold:.6});document.querySelectorAll('.counter').forEach(el=>counterObserver.observe(el));
     document.querySelectorAll('.phone-call').forEach(link=>link.addEventListener('click',function(){window.location.href='tel:+37379796603'}));
     const reviewsTrack=document.querySelector('.reviews-track');
