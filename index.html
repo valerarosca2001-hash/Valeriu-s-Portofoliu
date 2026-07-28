@@ -136,6 +136,27 @@
       .filter.active,.filter:hover{background:linear-gradient(135deg,#d4fff5,#9de9ff);color:#0c1220;border-color:transparent;box-shadow:0 9px 24px #9de9ff28}
     }
     @media(max-width:390px){.filters{gap:8px;padding:10px;border-radius:24px}.filter{min-height:48px;padding:10px 7px;font-size:13px}}
+    /* Recenzii mobile: păstrează sliderul continuu de pe desktop */
+    @media(max-width:760px){
+      .reviews-grid-section{overflow:hidden!important;padding-inline:0}
+      .reviews-grid-section .section-head{margin-inline:14px}
+      .reviews-grid{
+        display:flex!important;
+        width:max-content!important;
+        grid-template-columns:none;
+        gap:18px;
+        padding:14px 9px 34px;
+        animation:reviewsInfinite 115s linear infinite!important;
+        will-change:transform
+      }
+      .reviews-grid .review-card,.reviews-grid .review-card:nth-child(3n+2){
+        flex:0 0 min(340px,84vw);
+        width:min(340px,84vw);
+        min-height:260px;
+        transform:none
+      }
+    }
+    @media(prefers-reduced-motion:reduce){.reviews-grid{animation:none!important;transform:none!important}}
   </style>
 </head>
 <body>
